@@ -1,3 +1,6 @@
+
+echo "starting move listener"
+
 BASEDIR=$(dirname $0)
 source "$BASEDIR/config.sh" 
 

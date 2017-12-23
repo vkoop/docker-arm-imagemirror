@@ -1,14 +1,15 @@
 FROM armhf/ubuntu:trusty
 
 RUN apt-get update \
-    && apt-get install -y git  inotify-tools imagemagick  \
+    && apt-get install -y git  inotify-tools imagemagick supervisor \
     && apt-get -q clean \
     && rm -rf /var/lib/apt/lists/*
 
 COPY ./imagemirror /imagemirror
 
-RUN ln -s /imagemirror/register_listener.sh /usr/local/bin/imagemirror_start_listen 
-RUN chmod +x /usr/local/bin/imagemirror_start_listen
+RUN chmod +x /imagemirror/register_listener.sh
+
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 COPY entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint.sh
