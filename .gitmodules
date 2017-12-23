@@ -1,0 +1,3 @@
+[submodule "imagemirror"]
+	path = imagemirror
+	url = git@github.com:vkoop/imagemirror.git
