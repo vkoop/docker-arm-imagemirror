@@ -1,4 +1,4 @@
-FROM armhf/ubuntu:trusty
+FROM resin/rpi-raspbian
 
 RUN apt-get update \
     && apt-get install -y git  inotify-tools imagemagick supervisor \
